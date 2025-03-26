@@ -54,7 +54,7 @@ __1. Run the docker compose command:__
 ```bash
 docker-compose up --build'''
 
-
+'''
 
 # Sample Outputs
 
