@@ -52,11 +52,8 @@ Before running this project, ensure you have the following:
 __1. Run the docker compose command:__
 
 ```bash
-docker-compose up --build'''
-
-'''
-
-# Sample Outputs
+docker-compose up --build
+```
 
 # Troubleshooting
 
