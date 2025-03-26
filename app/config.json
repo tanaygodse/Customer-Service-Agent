@@ -1,0 +1,58 @@
+{
+  "model": "gpt-4o-2024-08-06",
+  "products":{
+    "MobileApp": { 
+      "description": "MobileApp is a social networking mobile application with high user engagement. The main objectives for this application are to serve users content at scale, ensure that users are able to discover interesting ideas and ensure high user engagement above all.", 
+      "component_team_mapping": {
+        "Authentication Module": "Auth Team",
+        "UI": "Mobile Frontend Team",
+        "Backend": "Mobile Backend Team",
+        "Database": "Mobile DB Team",
+        "Payment Gateway": "Mobile Payments Team",
+        "Login": "Mobile Auth Team",
+        "Chat Assistant": "Mobile Support Team"
+      },
+      "general_inquiry": {
+        "resource_dict": {
+          "Account Management": [
+            {"title": "Mobile Account FAQ", "url": "https://example.com/account"}
+          ],
+          "Billing": [
+            {"title": "Mobile Billing FAQ", "url": "https://example.com/billing"}
+          ],
+          "Usage Question": [
+            {"title": "Mobile Usage FAQ", "url": "https://example.com/usage"}
+          ],
+          "Other": []
+        }
+      }
+    },
+    "WebApp": { 
+      "description": "WebApp is an e-commerce platform offering a wide range of products with fast checkout. The main objectives for this application are to serve customers at scale, ensure a seamless experience and ensure fast checkout above all.", 
+      "component_team_mapping": {
+        "Authentication Module": "Web Auth Team",
+        "UI": "Web Frontend Team",
+        "Backend": "Web Backend Team",
+        "Database": "Web DB Team",
+        "Payment Gateway": "Web Payments Team",
+        "Login": "Web Auth Team",
+        "Chat Assistant": "Web Support Team"
+      },
+      "general_inquiry": {
+        "resource_dict": {
+          "Account Management": [
+            {"title": "Web Account FAQ", "url": "https://example.com/account"}
+          ],
+          "Billing": [
+            {"title": "Web Billing FAQ", "url": "https://example.com/billing"}
+          ],
+          "Usage Question": [
+            {"title": "Web Usage FAQ", "url": "https://example.com/usage"}
+          ],
+          "Other": []
+        }
+      }
+    }
+  }
+}
+
