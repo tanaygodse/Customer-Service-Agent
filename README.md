@@ -27,30 +27,30 @@ Before running this project, ensure you have the following:
     - Ensure you have `docker` installed. For more information click [here](https://docs.docker.com).
 
 ## Project Structure
-  .
-  |- app
-  |-- agent.py
-  |-- main.py
-  |-- config.json
-  |-- config.py
-  |-- nodes/
-  |--- bug_report.py
-  |--- classification.py
-  |--- feature_request.py
-  |--- general_inquiry.py
-  |-- utils/
-  |--- LLM.py
-  |-- tests/
-  |--- unit_tests.py
-  |- Dockerfile
-  |- docker-compose.yml
-  |- pytest.ini
-  |- requirements.txt
+    .
+    ├── ...
+    ├── app                         # Directory containing all the code
+    │   ├── agent.py                # Contains LangGraph code
+    │   ├── main.py                 # FastAPI Server
+    │   ├── config.json             # JSON file containing product, component and team details
+    │   ├── config.py               # Code to load config
+    │   ├── nodes/                  # Directory containing all the code for each of the nodes
+    │   │   ├── bug_report.py       # File containing code for generating bug_report response
+    │   │   ├── classification.py   # File containing code for classifying the message
+    │   │   ├── feature_request.py  # File containing code for generating feature_request response
+    │   │   ├── general_inquiry.py  # File containing code for generating general_inquiry response
+    │   ├── utils/                  # Directory containing utility functions
+    │   │   ├── LLM.py              # File containing code for LLMClient class
+    │   ├── tests/                  # Directory containing test files
+    │   │   ├── unit_tests.py       # File containing code for testing
+    ├── Dockerfile                  # Docker Image to build the application
+    ├── docker-compose.yml          # Docker Compose file to build the application along with passing in the .env file
+    ├── pytest.ini                  # Set the PYTHONPATH to root directory for pytest
+    ├── requirements.txt            # File containing all the dependencies of this application
 
 # Running the System
 
 __1. Run the docker compose command:__
-
 ```bash
 docker-compose up --build
 ```
