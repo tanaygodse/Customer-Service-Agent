@@ -48,7 +48,7 @@ Before running this project, ensure you have the following:
     ├── pytest.ini                  # Set the PYTHONPATH to root directory for pytest
     ├── requirements.txt            # File containing all the dependencies of this application
 
-# LangGraph Graph
+# LangGraph Visualization
 ![Graph](./Diagram.png)
 ```
 ```
