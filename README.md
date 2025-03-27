@@ -48,6 +48,29 @@ Before running this project, ensure you have the following:
     ├── pytest.ini                  # Set the PYTHONPATH to root directory for pytest
     ├── requirements.txt            # File containing all the dependencies of this application
 
+# LangGraph Graph 
+                                  +-----------+                                      
+                                  | __start__ |                                      
+                                  +-----------+                                      
+                                         *                                           
+                                         *                                           
+                                         *                                           
+                                +----------------+                                   
+                                | classify_input |                                   
+                            ....+----------------+.....                              
+                       .....             .             .....                         
+                 ......                 .                   ......                   
+              ...                       .                         ...                
++----------------+           +--------------------+           +--------------------+ 
+| bug_extraction |           | feature_extraction |           | inquiry_extraction | 
++----------------+*****      +--------------------+         **+--------------------+ 
+                       *****            *              *****                         
+                            ******       *       ******                              
+                                  ***    *    ***                                    
+                                    +---------+                                      
+                                    | __end__ |                                      
+                                    +---------+
+
 # Running the System
 
 __1. Run the docker compose command:__
