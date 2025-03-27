@@ -62,3 +62,15 @@ workflow.add_edge("inquiry_extraction", END)
 
 # Define entry point as classification node
 workflow.set_entry_point("classify_input")
+
+if __name__ == "__main__":
+    # Compile the workflow first
+    compiled = workflow.compile()
+
+    # Print ASCII visualization
+    print("📊 LangGraph ASCII Visualization:")
+    print(compiled.get_graph().print_ascii())
+
+    # Print Mermaid diagram
+    print("\n🌐 LangGraph Mermaid Visualization:")
+    print(compiled.get_graph().draw_mermaid())
