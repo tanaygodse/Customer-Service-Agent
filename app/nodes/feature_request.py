@@ -53,7 +53,9 @@ async def feature_request_extraction_node(state: dict) -> dict:
         f"{components_list}. "
         "The 'business_value' should be set to High/Medium/Low based on the feature request with respect to the description for the application provided"
         f"Description for the application: {description}."
+        "Strictly fill in the only the details that can be inferred from the customer message other than this."
         "If a field cannot be determined from the message, use the value 'UNKNOWN_VALUE' for that field. "
+        "Do not hallucinate or make assumptions."
         "If any field is missing, include a 'missing_fields' list in your JSON output containing the names of the missing fields. "
         "Return your answer as a JSON object with these keys.\n\n"
         f'Customer message: "{message}"'

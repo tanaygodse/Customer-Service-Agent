@@ -40,6 +40,9 @@ async def general_inquiry_extraction_node(state: dict) -> dict:
         f"The 'inquiry_category' should be one of the following: {inquiry_categories}"
         "The 'requires_human_review' should be marked as True if the category cannot be identified or if the user was"
         " not able to solve their problem using the resources provided by the system"
+        "Strictly fill in the only the details that can be inferred from the customer message other than this."
+        "If a field cannot be determined from the message, use the value 'UNKNOWN_VALUE' for that field. "
+        "Do not hallucinate or make assumptions."
         "Return your answer as a JSON object with the keys 'inquiry_category' and 'requires_human_review'.\n\n"
         f'Customer message: "{message}"'
     )

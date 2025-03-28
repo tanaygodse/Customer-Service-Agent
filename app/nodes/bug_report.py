@@ -42,7 +42,10 @@ async def bug_report_extraction_node(state: dict) -> dict:
         "Extract the following fields from the message: 'title', 'reproduction_steps' (as a list), "
         "and 'affected_components'. For 'affected_components', choose the most appropriate one from the following list: "
         f"{components_list}. "
+        "Reproduction steps should be inferred from the customer messages."
+        "Strictly fill in the only the details that can be inferred from the customer message other than this."
         "If a field cannot be determined from the message, use the value 'UNKNOWN_VALUE' for that field. "
+        "Do not hallucinate or make assumptions."
         "Return your answer as a JSON object with these keys.\n\n"
         f'Customer message: "{message}"'
     )
@@ -63,7 +66,6 @@ async def bug_report_extraction_node(state: dict) -> dict:
     )
     try:
         data = response.model_dump()
-        print("data", data)
     except Exception as e:
         logger.error(str(e))
     assigned_teams = [

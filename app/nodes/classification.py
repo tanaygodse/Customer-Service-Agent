@@ -50,9 +50,6 @@ async def classify_input_node(state: dict) -> dict:
         },
         {"role": "user", "content": prompt},
     ]
-    print("Here")
-    print(messages)
-    print(message)
     llm_client = LLMClient()
     response = llm_client.parse(
         model=config["model"],
@@ -61,7 +58,6 @@ async def classify_input_node(state: dict) -> dict:
     )
     try:
         data = response.model_dump()
-        print(data)
     except Exception as e:
         logger.error(e)
         data = {"classification": "general_inquiry", "confidence_score": 0}

@@ -15,7 +15,10 @@ class LLMClient:
         """
         try:
             response = self.client.beta.chat.completions.parse(
-                model=model, messages=messages, response_format=response_format
+                model=model,
+                messages=messages,
+                response_format=response_format,
+                temperature=0,
             )
             # Retrieve the parsed output from the response.
             output = response.choices[0].message.parsed

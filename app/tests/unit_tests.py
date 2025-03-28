@@ -105,3 +105,34 @@ def test_invalid_product():
 
     assert response.status_code == 200
     assert response.json()["customer_response"] == "Invalid Product Name"
+
+
+def test_deterministic_output():
+    payload = {
+        "customer_id": "u1",
+        "message": "I can't log in to the application",
+        "product": "MobileApp",
+    }
+
+    responses = []
+
+    with TestClient(app) as client:
+        for _ in range(5):
+            response = client.post("/process-customer-message", json=payload)
+            assert response.status_code == 200
+            data = response.json()
+
+            data.pop("customer_response", None)
+
+            if "ticket" in data["response_data"]:
+                ticket = data["response_data"]["ticket"]
+                ticket_without_id = {k: v for k, v in ticket.items() if (k != "id")}
+                data["response_data"]["ticket"] = ticket_without_id
+
+            responses.append(data)
+            print()
+
+    for result in responses[1:]:
+        assert result == responses[0], (
+            f"Inconsistent output: {result} != {responses[0]}"
+        )
