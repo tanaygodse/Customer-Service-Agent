@@ -107,7 +107,10 @@ def test_invalid_product():
     assert response.json()["customer_response"] == "Invalid Product Name"
 
 
-def test_deterministic_output():
+def test_deterministic_output(monkeypatch):
+    # Undo the patch for this test only by restoring the original method
+    monkeypatch.undo()
+
     payload = {
         "customer_id": "u1",
         "message": "I can't log in to the application",
@@ -124,13 +127,13 @@ def test_deterministic_output():
 
             data.pop("customer_response", None)
 
+            # Normalize ticket by removing non-deterministic ID
             if "ticket" in data["response_data"]:
                 ticket = data["response_data"]["ticket"]
-                ticket_without_id = {k: v for k, v in ticket.items() if (k != "id")}
+                ticket_without_id = {k: v for k, v in ticket.items() if k != "id"}
                 data["response_data"]["ticket"] = ticket_without_id
 
             responses.append(data)
-            print()
 
     for result in responses[1:]:
         assert result == responses[0], (
